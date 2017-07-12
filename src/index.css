@@ -11,17 +11,16 @@ chimee-popup{
     float: right;
     color: #fff;
     text-decoration: none;
-    opacity: .8;
     cursor: pointer;
     line-height: 14px;
     text-shadow: 0 0 1px #000;
     font-size: 15px;
     padding: 0 3px;
     cursor: pointer;
-  }
-
-  cm-pp-close:hover{
-    opacity: 1;
+    opacity: .8;
+    &:hover{
+      opacity: 1;
+    }
   }
 
   cm-pp-head,
