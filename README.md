@@ -5,20 +5,21 @@
 ## 开始
 开始使用前，需要先在页面中引入`popup.js`插件模块。
 ```html
-<script type="text/javascript" src="../../dist/popup.js"></script>
+<script type="text/javascript" src="./lib/index.browser.js"></script>
 ```
+> JS模块引入后，将在全局产生一个用来生成popup `pluginConfig` 的工厂函数 `window.chimeePluginPopup`，调用该函数传入相应参数即可得到目标`popupPluginConfig`。
+
 或者JS代码中
 ```javascript
-import popupFactory from './popup/index.js';
+import chimeePluginPopup from './lib/index.js';
 ```
 
-> JS模块引入后，将在全局产生一个用来生成popup `pluginConfig` 的工厂函数 `window.popupFactory`，调用该函数传入相应参数即可得到目标`popupPluginConfig`。
 
 > 通过`Chimee.install(popupPluginConfig)`把插件注册到`Chimee`类，即可在实例化播放器时在`option.plugin`数组上设定`popupPlugin`对应的name来启用UI组件。
 
 我们用来实现一个居中弹层，使用方式示例：
 ```javascript
-Chimee.install(popupFactory({
+Chimee.install(chimeePluginPopup({
     name: 'cc_popup',
     title: '这是一个居中信息框',
     body: '这里是信息内容',
@@ -66,9 +67,9 @@ const player = new Chimee({
     2. **operable** 是否启用事件交互（false则设置CSS事件穿透），默认 true
     3. **hide** 插件装载后是否默认为不展示（预先创建后，自行控制open时机），默认值 false
  5. 事件交互 
-    **events** 用来实现交互控制，比如我们要通过右键控制popup的展示隐藏，可以这么写：
+    **events** 用来实现交互控制，比如我们要通过右键控制popup的展示隐藏、位置移动，可以这么写：
 ```javascript
-  Chimee.install(popupFactory({
+  Chimee.install(chimeePluginPopup({
         name: 'menu_popup',
         ...
         hide: true,
@@ -85,7 +86,7 @@ const player = new Chimee({
 ```
 比如我们要感知popup的开启关闭，做相应后续逻辑执行，可以使用popup实现时新增的生命周期钩子：
 ```javascript
-  Chimee.install(popupFactory({
+  Chimee.install(chimeePluginPopup({
         name: 'my_popup',
         ...
         opened(e, pluginTarget) {
@@ -99,7 +100,7 @@ const player = new Chimee({
 
 如果想监听任意弹层组件的关闭，可以使用事件监听这么写：
 ```javascript
-  Chimee.install(popupFactory({
+  Chimee.install(chimeePluginPopup({
         name: 'my_popup',
         ...
         events: {
@@ -117,3 +118,5 @@ const player = new Chimee({
   }));
 ```
 也许你已经留意到了上面`if(this.__id === pluginTarget.__id)`的判断，这里因为 **events** 是针对全局范围任意插件或系统事件的监听（包括播放器本身的play、ended、pause、volumechange...），所以这里可以通过判断确定事件发出自哪个插件。
+
+
