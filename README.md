@@ -57,18 +57,19 @@ const player = new Chimee({
     2. **body** 默认浮层展示的内容
     3. **html** 浮层UI对应的HTML模板，默认为：
     
-    ```
+		```
 <vs-pp-close class="_close">×</vs-pp-close>
 <vs-pp-head>${title}</vs-pp-head>
 <vs-pp-body>${body}</vs-pp-body>
-    ```
+		```
+
  4. 状态控制
     1. **penetrate** 是否将交互事件同步到video元素(事件交互同步给video)，默认值false
     2. **operable** 是否启用事件交互（false则设置CSS事件穿透），默认 true
     3. **hide** 插件装载后是否默认为不展示（预先创建后，自行控制open时机），默认值 false
  5. 事件交互 
     **events** 用来实现交互控制，比如我们要通过右键控制popup的展示隐藏、位置移动，可以这么写：
-```javascript
+	```javascript
   Chimee.install(chimeePluginPopup({
         name: 'menu_popup',
         ...
@@ -83,9 +84,9 @@ const player = new Chimee({
           }
         }
   }));
-```
-比如我们要感知popup的开启关闭，做相应后续逻辑执行，可以使用popup实现时新增的生命周期钩子：
-```javascript
+	```
+	比如我们要感知popup的开启关闭，做相应后续逻辑执行，可以使用popup实现时新增的生命周期钩子：
+	```javascript
   Chimee.install(chimeePluginPopup({
         name: 'my_popup',
         ...
@@ -96,10 +97,11 @@ const player = new Chimee({
           ...
         }
   }));
-```
+	```
 
-如果想监听任意弹层组件的关闭，可以使用事件监听这么写：
-```javascript
+	如果想监听任意弹层组件的关闭，可以使用事件监听这么写：
+
+	```javascript
   Chimee.install(chimeePluginPopup({
         name: 'my_popup',
         ...
@@ -116,7 +118,7 @@ const player = new Chimee({
           }
         }
   }));
-```
-也许你已经留意到了上面`if(this.__id === pluginTarget.__id)`的判断，这里因为 **events** 是针对全局范围任意插件或系统事件的监听（包括播放器本身的play、ended、pause、volumechange...），所以这里可以通过判断确定事件发出自哪个插件。
+	```
+	也许你已经留意到了上面`if(this.__id === pluginTarget.__id)`的判断，这里因为 **events** 是针对全局范围任意插件或系统事件的监听（包括播放器本身的play、ended、pause、volumechange...），所以这里可以通过判断确定事件发出自哪个插件。
 
 
