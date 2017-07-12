@@ -1,4 +1,4 @@
-# popup demo of Vision
+# popup demo of Chimee
 
 > 可用以继承实现各种内容展示弹层交互需求
 
@@ -14,18 +14,18 @@ import popupFactory from './popup/index.js';
 
 > JS模块引入后，将在全局产生一个用来生成popup `pluginConfig` 的工厂函数 `window.popupFactory`，调用该函数传入相应参数即可得到目标`popupPluginConfig`。
 
-> 通过`Vision.install(popupPluginConfig)`把插件注册到`Vision`类，即可在实例化播放器时在`option.plugin`数组上设定`popupPlugin`对应的name来启用UI组件。
+> 通过`Chimee.install(popupPluginConfig)`把插件注册到`Chimee`类，即可在实例化播放器时在`option.plugin`数组上设定`popupPlugin`对应的name来启用UI组件。
 
 我们用来实现一个居中弹层，使用方式示例：
 ```javascript
-Vision.install(popupFactory({
+Chimee.install(popupFactory({
     name: 'cc_popup',
     title: '这是一个居中信息框',
     body: '这里是信息内容',
     offset: '50% 50%',
     width: '200px'
 }));
-const player = new Vision({
+const player = new Chimee({
     src: 'http://cdn.toxicjohann.com/lostStar.mp4',
     type: 'vod',
     box: 'mp4',
@@ -45,7 +45,7 @@ const player = new Vision({
  可以配置设定的参数除了`pluginConfig`包含内容之外，你可能会比较容易用到的几组参数：
  
  1. 声明
-    1. **name** 用来绑定实例化后的插件到Vision实例上。<br>*比如上面代码示例中使用了`cc_popup`作为插件名字，那么在接下来就可以通过 `player.ccPopup` 来访问插件实例（注册时自动驼峰化）。*
+    1. **name** 用来绑定实例化后的插件到Chimee实例上。<br>*比如上面代码示例中使用了`cc_popup`作为插件名字，那么在接下来就可以通过 `player.ccPopup` 来访问插件实例（注册时自动驼峰化）。*
  2. 坐标尺寸控制
     1. **offset** 控制popup的展示位置。 <br>*相对播放器区域四个边界的距离，可设定内容`像素:123px`或`百分比:12.3%`值，如：`0px 0px`、`10% 20%`。<br>设定方式支持: `'leftAndTop'`或`'left top'`或`'top right bottom left'`*
     2. **translate** 控制popup的偏移坐标。<br>*基于offset设定后的位置进行偏移，比如当offset的top或left为50%时，将默认translate相应方向为-50，以实现居中展示，数值设定规则与offset相同。*
@@ -68,7 +68,7 @@ const player = new Vision({
  5. 事件交互 
     **events** 用来实现交互控制，比如我们要通过右键控制popup的展示隐藏，可以这么写：
 ```javascript
-  Vision.install(popupFactory({
+  Chimee.install(popupFactory({
         name: 'menu_popup',
         ...
         hide: true,
@@ -85,7 +85,7 @@ const player = new Vision({
 ```
 比如我们要感知popup的开启关闭，做相应后续逻辑执行，可以使用popup实现时新增的生命周期钩子：
 ```javascript
-  Vision.install(popupFactory({
+  Chimee.install(popupFactory({
         name: 'my_popup',
         ...
         opened(e, pluginTarget) {
@@ -99,7 +99,7 @@ const player = new Vision({
 
 如果想监听任意弹层组件的关闭，可以使用事件监听这么写：
 ```javascript
-  Vision.install(popupFactory({
+  Chimee.install(popupFactory({
         name: 'my_popup',
         ...
         events: {
