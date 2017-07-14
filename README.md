@@ -1,4 +1,4 @@
-# popup demo of Chimee
+# popup plugin of Chimee
 
 > 可用以继承实现各种内容展示弹层交互需求
 

@@ -1,8 +1,11 @@
 {
   "name": "chimee-plugin-popup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "PopupPlugin for chimee",
   "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "jsnext:main": "lib/index.mjs",
+  "browser": "lib/index.browser.js",
   "scripts": {
     "test": "jest --coverage",
     "start": "jest --coverage --watch",
