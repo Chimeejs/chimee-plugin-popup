@@ -1,6 +1,6 @@
 # popup plugin of Chimee
 
-> 可用以继承实现各种内容展示弹层交互需求
+> 可用以继承实现各种内容展示弹层交互需求，效果参见[Demo](./demo/index.html)
 
 ## 开始
 开始使用前，需要先在页面中引入`popup.js`插件模块。

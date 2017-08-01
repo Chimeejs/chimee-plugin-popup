@@ -1,6 +1,6 @@
 {
   "name": "chimee-plugin-popup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PopupPlugin for chimee",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/Chimeejs/chimee-plugin-popup#readme",
   "dependencies": {
-    "babel-runtime": "^6.23.0",
-    "chimee-helper": "^0.1.10"
+    "babel-runtime": "^6.25.0",
+    "chimee-helper": "^0.1.15"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -44,17 +44,19 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-latest": "^6.24.1",
+    "chimee": "^0.2.2",
+    "chimee-plugin-controlbar": "0.0.9",
     "cssnano": "^3.10.0",
-    "eslint": "^4.2.0",
+    "eslint": "^4.3.0",
     "eslint-plugin-jest": "^20.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
-    "postcss-nested": "^2.0.2",
-    "rollup": "^0.45.1",
+    "postcss-nested": "^2.1.0",
+    "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-postcss": "^0.5.3",
+    "rollup-plugin-postcss": "^0.5.4",
     "rollup-plugin-uglify": "^2.0.1"
   },
   "jest": {
