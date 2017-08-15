@@ -14,6 +14,10 @@
 import chimeePluginPopup from './lib/index.js';
 ```
 
+如果是基于node构建环境开发，建议使用`npm install chimee-plugin-popup --save`，需要的业务页import就好了
+```javascript
+import chimeePluginPopup from 'chimee-plugin-popup';
+```
 
 > 通过`Chimee.install(popupPluginConfig)`把插件注册到`Chimee`类，即可在实例化播放器时在`option.plugin`数组上设定`popupPlugin`对应的name来启用UI组件。
 
@@ -32,7 +36,6 @@ const player = new Chimee({
   box: 'mp4',
   wrapper: '#wrapper',
   plugin: ['cc_popup'],
-  runtimeOrder: ['html5', 'flash'],
   auto: true
 });
 ```
