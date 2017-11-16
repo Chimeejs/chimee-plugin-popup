@@ -2,7 +2,7 @@ import {deepAssign, isObject, isFunction, $} from 'chimee-helper';
 import './index.css';
 
 /**
- * 生产一个popup插件配置
+ * 这里提供一个工厂方法，用于生产一个popup插件配置，或基于popup特性实现自己的插件
  * @param {Object} optons 针对popup扩展了定制化参数，另外也用来重写部分PluginConfig配置
  * @param {String} optons.name 插件名
  * @param {String} optons.tagName Popup DOM容器的tagName
@@ -22,7 +22,7 @@ import './index.css';
  * @param {Boolean} optons.operable 是否启用事件交互（false则设置CSS事件穿透），默认值 true
  * @return {PluginConfig}
  */
-export default function popupFactory ({
+function popupFactory ({
   tagName = 'chimee-popup',
   className,
   name = 'popup',
@@ -162,3 +162,5 @@ export default function popupFactory ({
     }, methods)
   };
 }
+
+export default popupFactory;

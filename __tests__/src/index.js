@@ -1,5 +1,5 @@
 import popupFactory from 'index';
-import {addTransMethod, $} from 'chimee-helper';
+import {$} from 'chimee-helper';
 
 let createCount = 0;
 let destroyCount = 0;
@@ -117,7 +117,6 @@ const popupConf2 = popupFactory({
 const $domWrap2 = $('<div />').appendTo(document.body);
 
 // 模拟构造之
-addTransMethod(popupConf2);
 popupConf2.$dom = $domWrap2[0];
 popupConf2.bindMethods = ()=>{};
 popupConf2.$emit = ()=>{};
@@ -137,7 +136,6 @@ const popupConf3 = popupFactory();
 const $domWrap3 = $('<div />').appendTo(document.body);
 
 // 模拟构造之
-addTransMethod(popupConf3);
 popupConf3.$dom = $domWrap3[0];
 popupConf3.destroyed = true;
 popupConf3.bindMethods = ()=>{};

@@ -16,6 +16,18 @@ Chimee.install(popupFactory({
   offset: '40% 40%',
   width: '160px',
   hide: true,
+  create () {
+    // 点击播放器之外的文档区域关闭右键菜单
+    this._doc = new this.$domWrap.constructor(document);
+    this._doc_click = e => this.close();
+    this._doc.on('click', this._doc_click);
+  },
+  destroy () {
+    this._doc.off('click', this._doc_click);
+  },
+  opened () {
+    this.$bumpToTop();
+  },
   events: {
     contextmenu (e) {
       this.offset(e.offsetX + 'px ' + e.offsetY + 'px').open(e);
