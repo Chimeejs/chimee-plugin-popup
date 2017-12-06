@@ -1,6 +1,6 @@
 # popup plugin of Chimee
 
-> 可用以继承实现各种内容展示弹层交互需求，效果参见[Demo](https://github.com/Chimeejs/chimee-plugin-popup/tree/master/demo)
+> 本插件提供了一个工厂方法，可用于实现模态框需求，适当UI和CSS重写后也可以用于实现各种挂件，效果参见[Demo](https://github.com/Chimeejs/chimee-plugin-popup/tree/master/demo)
 
 ## 开始
 开始使用前，需要先在页面中引入`popup.js`插件模块。
