@@ -127,7 +127,7 @@ function popupFactory ({
         const cssObj = {};
         if (trblArr.length > 2) {
           ['top', 'right', 'bottom', 'left'].forEach((dir, i) => {
-            if (trblArr[i] && trblArr[i] !== 'auto') {
+            if (trblArr[i]) {
               cssObj[dir] = trblArr[i];
             }
           });
