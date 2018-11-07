@@ -1,5 +1,7 @@
 # popup plugin of Chimee
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Chimeejs/chimee-plugin-popup.svg)](https://greenkeeper.io/)
+
 > 本插件提供了一个工厂方法，可用于实现模态框需求，适当UI和CSS重写后也可以用于实现各种挂件，效果参见[Demo](https://github.com/Chimeejs/chimee-plugin-popup/tree/master/demo)
 
 ## 开始
