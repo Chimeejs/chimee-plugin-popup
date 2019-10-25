@@ -158,6 +158,8 @@ function popupFactory ({
         const [x, y] = `${xy || ''}`.split(' ');
         if(x !== ''){
           this.$domWrap.css('transform', `translate(${x}, ${y || x})`);
+          this.$domWrap.css('-ms-transform', `translate(${x}, ${y || x})`);
+          
           if(!('transform' in document.createElement('a').style) && window.console && window.console.warn){
             console.warn('[chimee-plugin-popup] 当前环境不支持CSS3的transform特性，Dom元素无法正常使用translate。');
           }
